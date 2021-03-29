@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kurly.mapper.ProductMapper">
+	<insert id="insertProduct" useGeneratedKeys="true" keyProperty="mkp_seq"> 
+		INSERT INTO mk_products(
+			mkp_name, 
+			mkp_sub_name, 
+			mkp_bi_seq, 
+			mkp_ci_seq, 
+			mkp_price,
+			mkp_discount,
+			mkp_discount_rate,
+			mkp_kurly_only,
+			mkp_point_rate,
+			mkp_unit,
+			mkp_weight,
+			mkp_early_delivery,
+			mkp_delivery,
+			mkp_packing_type,
+			mkp_allergy_info,
+			mkp_exp_date,
+			mkp_relation_seq
+		)VALUES(
+			#{mkp_name},
+			#{mkp_sub_name},
+			#{mkp_bi_seq},
+			#{mkp_ci_seq},
+			#{mkp_price},
+			#{mkp_discount},
+			#{mkp_discount_rate},
+			#{mkp_kurly_only},
+			#{mkp_point_rate},
+			#{mkp_unit},
+			#{mkp_weight},
+			#{mkp_early_delivery},
+			#{mkp_delivery},
+			#{mkp_packing_type},
+			#{mkp_allergy_info},
+			#{mkp_exp_date},
+			#{mkp_relation_seq}
+		)
+	</insert>
+	<select id="selectProducts" resultType="com.kurly.vo.ProductVO">
+		SELECT c.*, d.mkpc_name AS category_name FROM
+		(
+			SELECT a.*, b.mkb_name AS brand_name
+			FROM mk_products a
+			INNER JOIN 
+			mk_brand b
+			ON a.mkp_bi_seq = b.mkb_seq
+		)c 
+		INNER JOIN mk_product_category d
+		ON c.mkp_ci_seq = d.mkpc_seq
+	</select>
+	<delete id="deleteProduct">
+		DELETE FROM mk_products WHERE mkp_seq = #{seq}
+	</delete>
+</mapper>
