@@ -10,8 +10,10 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -49,7 +51,11 @@ public class ProductAPIController {
 			@RequestParam String brand,
 			@RequestParam String name
 			) throws Exception{
-			System.out.println(seq+":"+brand+":"+name);
+		
+		if(file.getOriginalFilename() == "") {
+			return null;
+		}
+		
 		ProductVO vo = new ProductVO();
 		vo.setMkp_name(name);
 		vo.setMkp_seq(seq);
@@ -72,7 +78,7 @@ public class ProductAPIController {
 			.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename*=\""+resource.getFilename()+"\"")
 			.body(resource);
 	}
-	@DeleteMapping("product/{seq}")
+	@DeleteMapping("/product/{seq}")
 	public Map<String, String> deleteProduct(@PathVariable Integer seq){
 		Map<String, String> resultMap = new LinkedHashMap<String, String>();
 		
@@ -80,6 +86,31 @@ public class ProductAPIController {
 		resultMap.put("message", "삭제되었습니다.");
 		
 		service.deleteProduct(seq);
+		
+		return resultMap;
+	}
+	@GetMapping("/product/{seq}")
+	public Map<String, Object> getProduct(@PathVariable Integer seq){
+		Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+		ProductVO vo = service.selectProductBySeq(seq);
+		if(vo != null) {
+			resultMap.put("status", "success");
+			resultMap.put("product", vo);
+		}
+		else {
+			resultMap.put("status", "failed");
+			resultMap.put("reason", seq + "번 데이터는 존재하지 않습니다.");
+		}
+		return resultMap;
+	}
+	@PatchMapping("/product")
+	public Map<String, String> patchProduct(@RequestBody ProductVO vo){
+		Map<String, String> resultMap = new LinkedHashMap<String,String>();
+		
+		service.updateProduct(vo);
+		
+		resultMap.put("status", "success");
+		resultMap.put("message", "수정되었습니다.");
 		
 		return resultMap;
 	}

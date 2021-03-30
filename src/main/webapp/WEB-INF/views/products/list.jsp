@@ -9,7 +9,11 @@
 	<title>마켓컬리 :: 관리자 페이지</title>
 	<link rel="icon" href="/resources/images/favicon.png" />
 	<link rel="stylesheet" href="/resources/css/product_list.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.structure.min.css" integrity="sha512-oM24YOsgj1yCDHwW895ZtK7zoDQgscnwkCLXcPUNsTRwoW1T1nDIuwkZq/O6oLYjpuz4DfEDr02Pguu68r4/3w==" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css" integrity="sha512-9h7XRlUeUwcHUf9bNiWSTO9ovOWFELxTlViP801e5BbwNJ5ir9ua6L20tEroWZdm+HFBAWBLx2qH4l4QHHlRyg==" crossorigin="anonymous" />
 	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
 	<script src="/resources/js/product.js"></script>
 </head>
 <body>
@@ -94,7 +98,7 @@
 								<fmt:formatDate value="${item.mkp_reg_date}" pattern="yyyy-MM-dd HH:mm" />
 							</div>
 							<div class="prod_modify">
-								<button type="button">수정</button>
+								<button type="button" data-seq="${item.mkp_seq}">수정</button>
 							</div>
 							<div class="prod_delete">
 								<button type="button" data-seq="${item.mkp_seq}">삭제</button>
@@ -211,6 +215,7 @@
 			<textarea id="allergy_info"></textarea>
 			<p class="item_title">제품 이미지</p>
 			<form id="prod_img_form">
+				<span class="prev_img"></span>
 				<input type="file" name="file" accept=".jpg, .png, .jpeg, .webp "/>
 			</form>
 			<div class="button_area">

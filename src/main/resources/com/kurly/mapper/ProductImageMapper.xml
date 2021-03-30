@@ -16,4 +16,11 @@
 		ORDER BY mkpi_seq
 		DESC LIMIT 1
 	</select>
+	<select id="selectProductImageName" resultType="java.lang.String">
+		SELECT mkpi_name as name
+		FROM mk_product_image
+		WHERE mkpi_product_seq=#{seq}
+		ORDER BY mkpi_seq
+		DESC LIMIT 1
+	</select> 
 </mapper>

@@ -33,5 +33,6 @@ public class ProductVO {
 	private String category_name;
 	private String brand_name;
 	private String image_uri;
+	private String image_name;
 	
 }

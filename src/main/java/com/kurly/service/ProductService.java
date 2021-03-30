@@ -35,4 +35,14 @@ public class ProductService {
 	public void deleteProduct(Integer seq) {
 		mapper.deleteProduct(seq);
 	}
+	public ProductVO selectProductBySeq(Integer seq) {
+		String imageName = imageMapper.selectProductImageName(seq);
+		ProductVO vo = mapper.selectProductBySeq(seq);
+		vo.setImage_name(imageName);
+		return vo;
+	}
+	public void updateProduct(ProductVO vo) {
+		mapper.updateProduct(vo);
+	}
+
 }

@@ -11,4 +11,7 @@ public interface ProductMapper {
 	public void insertProduct(ProductVO vo);
 	public List<ProductVO> selectProducts();
 	public void deleteProduct(Integer seq);
+	public ProductVO selectProductBySeq(Integer seq);
+	public void updateProduct(ProductVO vo);
+
 }

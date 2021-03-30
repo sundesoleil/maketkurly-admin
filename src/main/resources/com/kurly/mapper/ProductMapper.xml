@@ -55,4 +55,29 @@
 	<delete id="deleteProduct">
 		DELETE FROM mk_products WHERE mkp_seq = #{seq}
 	</delete>
+	<select id="selectProductBySeq" resultType="com.kurly.vo.ProductVO">
+		SELECT * FROM mk_products WHERE mkp_seq = #{seq}
+	</select>
+	<update id="updateProduct">
+		UPDATE mk_products 
+		SET
+			mkp_name=#{mkp_name}, 
+			mkp_sub_name=#{mkp_sub_name}, 
+			mkp_bi_seq=#{mkp_bi_seq}, 
+			mkp_ci_seq=#{mkp_ci_seq}, 
+			mkp_price=#{mkp_price},
+			mkp_discount=#{mkp_discount},
+			mkp_discount_rate=#{mkp_discount_rate},
+			mkp_kurly_only=#{mkp_kurly_only},
+			mkp_point_rate=#{mkp_point_rate},
+			mkp_unit=#{mkp_unit},
+			mkp_weight=#{mkp_weight},
+			mkp_early_delivery=#{mkp_early_delivery},
+			mkp_delivery=#{mkp_delivery},
+			mkp_packing_type=#{mkp_packing_type},
+			mkp_allergy_info=#{mkp_allergy_info},
+			mkp_exp_date=#{mkp_exp_date},
+			mkp_relation_seq=#{mkp_relation_seq}
+		WHERE mkp_seq=#{mkp_seq}
+	</update>
 </mapper>

@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="/resources/css/reset.css" />
 	<link rel="stylesheet" href="/resources/css/left_menu.css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- 	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script> -->
 	<script>
 		$(function(){
 			let menu_num = "${menu_num}";
