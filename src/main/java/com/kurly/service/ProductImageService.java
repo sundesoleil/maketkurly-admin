@@ -33,7 +33,11 @@ public class ProductImageService {
 		ProductImageVO imgVO = new ProductImageVO();
 		
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-		fileName = vo.getBrand_name() + "_" + vo.getMkp_name() + "_" + fileName;
+		
+		// 이미지 이름에 사용할 수 없는 특수문자 체크
+		String regex = "!\\\"#[$]%&\\\\(\\\\)\\\\{\\\\}@`[*]:[+];-.<>,\\\\^~|'\\\\[\\\\]";
+		
+		fileName = vo.getBrand_name().replaceAll(regex, "_") + "_" + vo.getMkp_name() + "_" + fileName.replaceAll(regex, "_");
 		imgVO.setMkpi_uri(fileName.substring(0, fileName.indexOf(".")));
 		
 		

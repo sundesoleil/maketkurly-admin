@@ -1,7 +1,7 @@
 /*left_menu.css*/
 .left_side{
 	width: 220px;	
-	position:absolute;
+	position:fixed;
 	background-color:#fff;
 	box-shadow:2px 0 5px rgba(0,0,0,0.3);
 	height:100%;
