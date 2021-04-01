@@ -23,4 +23,10 @@ public class ProductController {
 		model.addAttribute("list", productList);
 		return "/products/list";
 	}
+	
+	@GetMapping("/recommend")
+	public String getRecommend(Model model) {
+		model.addAttribute("menu_num", 2);
+		return "/products/recommend";
+	}
 }
