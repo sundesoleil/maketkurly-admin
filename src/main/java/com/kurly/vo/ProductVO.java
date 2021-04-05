@@ -34,5 +34,9 @@ public class ProductVO {
 	private String brand_name;
 	private String image_uri;
 	private String image_name;
+	private Integer mkrp_seq;
+	private Integer mkmrp_seq;
+	private Integer mksp_seq;
+	private Integer mkap_seq;
 	
 }

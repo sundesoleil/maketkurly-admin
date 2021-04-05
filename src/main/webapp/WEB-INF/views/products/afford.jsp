@@ -6,24 +6,24 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>마켓컬리 :: 추천상품관리</title>
+	<title>마켓컬리 :: 알뜰상품관리</title>
 	<link rel="stylesheet" href="/resources/css/category_list.css" />
 	<link rel="stylesheet" href="/resources/css/prod_add_modal.css" />
 	<link rel="icon" href="/resources/images/favicon.png" />
 	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="/resources/js/recommend.js"></script>
+	<script src="/resources/js/afford.js"></script>
 </head>
 <body>
-<%@include file="/WEB-INF/views/includes/left_menu.jsp" %>
+	<%@include file="/WEB-INF/views/includes/left_menu.jsp" %>
 	<div class="wrap">
 		<div class="header_area">
-				<h1><i class="fas fa-thumbs-up"></i>추천상품 관리</h1>
+				<h1><i class="fas fa-thumbs-up"></i>알뜰 상품 관리</h1>
 				<div class="header_right">
 					<div class="search_box">
 						<input type="text" id="search_keyword" />
 						<img src="/resources/images/DM_20210324195650_057.PNG" />
 					</div>
-					<button id="add_category">추천상품 추가</button>
+					<button id="add_category">상품 추가</button>
 				</div>
 			</div>
 			<div class="list">
@@ -80,16 +80,6 @@
 					<div>가격</div>
 				</div>
 				<div class="modal_prod_item_wrap">
-<!-- 					<div class="modal_prod_item">
-						<div>
-							<input type="checkbox" class="modal_prod_item_sel" id="sel1"/>
-							<label for="sel1"></label>
-						</div>
-						<div>마켓컬리</div>
-						<div>육류</div>
-						<div>한우 스테이크</div>
-						<div>35,000원</div>
-					</div> -->
 				</div>
 			</div>
 			<div class="prod_modal_btn_area">
