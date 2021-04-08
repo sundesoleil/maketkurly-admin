@@ -47,6 +47,7 @@
 				<a href="/company"><i class="fas fa-building"></i>브랜드업체관리</a>
 				<a href="/special"><i class="fas fa-won-sign"></i>특가상품관리</a>
 				<a href="/afford"><i class="fas fa-hand-holding-usd"></i>알뜰상품관리</a>
+				<a href="/member"><i class="fas fa-users"></i>회원관리</a>
 			</div>
 		</div>
 </body>
